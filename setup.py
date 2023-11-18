@@ -47,7 +47,7 @@ class TempWorkDir:
 API_REF_URL = 'https://tl.telethon.dev/'
 
 GENERATOR_DIR = Path('telethon_generator')
-LIBRARY_DIR = Path('telethon')
+LIBRARY_DIR = Path('teatelethon')
 
 ERRORS_IN = GENERATOR_DIR / 'data/errors.csv'
 ERRORS_OUT = LIBRARY_DIR / 'errors/rpcerrorlist.py'
@@ -184,7 +184,7 @@ def main(argv):
             print('Packaging for PyPi aborted, importing the module failed.')
             return
 
-        remove_dirs = ['__pycache__', 'build', 'dist', 'Telethon.egg-info']
+        remove_dirs = ['__pycache__', 'build', 'dist', 'teatelethon.egg-info']
         for root, _dirs, _files in os.walk(LIBRARY_DIR, topdown=False):
             # setuptools is including __pycache__ for some reason (#1605)
             if root.endswith('/__pycache__'):
@@ -195,7 +195,7 @@ def main(argv):
         run('python3 setup.py sdist', shell=True)
         run('python3 setup.py bdist_wheel', shell=True)
         run('twine upload dist/*', shell=True)
-        for x in ('build', 'dist', 'Telethon.egg-info'):
+        for x in ('build', 'dist', 'teatelethon.egg-info'):
             shutil.rmtree(x, ignore_errors=True)
 
     else:
@@ -207,13 +207,13 @@ def main(argv):
         with open('README.rst', 'r', encoding='utf-8') as f:
             long_description = f.read()
 
-        with open('telethon/version.py', 'r', encoding='utf-8') as f:
+        with open('teatelethon/version.py', 'r', encoding='utf-8') as f:
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
             name='teatelethon',
             version=version,
-            description="Rewrited telethon for teagram",
+            description="Telethon for teagram",
             long_description=long_description,
 
             url='https://github.com/itzlayz/tea-TL',
