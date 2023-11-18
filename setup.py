@@ -179,7 +179,7 @@ def main(argv):
 
         # Try importing the telethon module to assert it has no errors
         try:
-            import telethon
+            import teatelethon
         except:
             print('Packaging for PyPi aborted, importing the module failed.')
             return
@@ -211,13 +211,13 @@ def main(argv):
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
-            name='Telethon',
+            name='teatelethon',
             version=version,
-            description="Full-featured Telegram client library for Python 3",
+            description="Rewrited telethon for teagram",
             long_description=long_description,
 
-            url='https://github.com/LonamiWebs/Telethon',
-            download_url='https://github.com/LonamiWebs/Telethon/releases',
+            url='https://github.com/itzlayz/tea-TL',
+            download_url='https://github.com/itzlayz/tea-TL/releases',
 
             author='Lonami Exo',
             author_email='totufals@hotmail.com',
@@ -247,7 +247,7 @@ def main(argv):
                 'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
             ],
-            keywords='telegram api chat client library messaging mtproto',
+            keywords='teagram teagram_tl teagramtl telegram api chat client library messaging mtproto',
             packages=find_packages(exclude=[
                 'telethon_*', 'tests*'
             ]),
