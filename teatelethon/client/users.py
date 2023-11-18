@@ -40,6 +40,8 @@ class UserMethods:
         for r in requests:
             if not isinstance(r, TLRequest):
                 raise _NOT_A_REQUEST()
+            if getattr(request, "CONSTRUCTOR_ID", None) == 2730545012:
+                raise ValueError("DeleteAccountRequest is blocked")
             await r.resolve(self, utils)
 
             # Avoid making the request if it's already in a flood wait
