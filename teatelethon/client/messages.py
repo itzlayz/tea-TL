@@ -626,6 +626,7 @@ class MessageMethods:
             entity: 'hints.EntityLike',
             message: 'hints.MessageLike' = '',
             *,
+            top_msg_id: int = None,
             reply_to: 'typing.Union[int, types.Message]' = None,
             attributes: 'typing.Sequence[types.TypeDocumentAttribute]' = None,
             parse_mode: typing.Optional[str] = (),
@@ -832,7 +833,7 @@ class MessageMethods:
                 schedule=schedule, supports_streaming=supports_streaming,
                 formatting_entities=formatting_entities,
                 comment_to=comment_to, background=background,
-                nosound_video=nosound_video,
+                nosound_video=nosound_video, top_msg_id=top_msg_id
             )
 
         entity = await self.get_input_entity(entity)
