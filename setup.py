@@ -210,6 +210,7 @@ def main(argv):
         with open('teatelethon/version.py', 'r', encoding='utf-8') as f:
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
+
         setup(
             name='teatelethon',
             version=version,
@@ -247,7 +248,7 @@ def main(argv):
                 'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
             ],
-            keywords='teagram teagram_tl teagramtl telegram api chat client library messaging mtproto',
+            keywords='teagram teagramtl telegram api chat client library messaging mtproto',
             packages=find_packages(exclude=[
                 'telethon_*', 'tests*'
             ]),
